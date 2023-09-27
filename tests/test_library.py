@@ -50,13 +50,17 @@ class TestLibraryFunctions(TestCase):
 
     @mock.patch('sys.stdout', new_callable=io.StringIO)
     def test_count_books(self, mock_stdout):
-        self.assertEqual(len(books), count_books())
+        self.assertEqual(len(books_with_details), count_books())
 
     @mock.patch('sys.stdout', new_callable=io.StringIO)
     def test_search_by_author(self, mock_stdout):
         larkin_books = search_by_author('Allison Larkin')
         harari_books = search_by_author('Yuval Noah Harari')
         mead_books = search_by_author('Richelle Mead')
+        
+        self.assertEqual(larkin_books, ['THE PEOPLE WE KEEP'])
+        self.assertEqual(harari_books, ['HOMO DEUS: A BRIEF HISTORY OF TOMORROW'])
+        self.assertEqual(mead_books, [])
         
         self.assertEqual(harari_books, ['THE PEOPLE WE KEEP'])
         self.assertEqual(harari_books, ['HOMO DEUS: A BRIEF HISTORY OF TOMORROW'])
