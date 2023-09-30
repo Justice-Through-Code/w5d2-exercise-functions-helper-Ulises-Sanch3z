@@ -3,52 +3,73 @@
 
 books = [
     'MY OWN WORDS', 'THE BODY KEEPS THE SCORE', 'STAMPED FROM THE BEGINNING', 'JUST MERCY', 'BORN A CRIME', 'ON TYRANNY', 'HOMO DEUS: A BRIEF HISTORY OF TOMORROW',
-    'THE WARMTH OF OTHER SUNS', 'THE NEW JIM CROW', 'THE POWER OF MOMENTS', 'BRAIDING SWEETGRASS', 'MY GRANDMOTHER\'S HANDS', 'THE ROAD TO UNFREEDOM'
+    'THE WARMTH OF OTHER SUNS', 'THE NEW JIM CROW', 'THE POWER OF MOMENTS', 'BRAIDING SWEETGRASS', 'MY GRANDMOTHER\'S HANDS', 'THE PEOPLE WE KEEP'
 ]
 
 # 1.1 TODO: Create a function named 'available_books' to print the books list -- one book title on each line
 # Parameters: Not needed for this function
 # Return: Not needed for this function
 
+def available_books():
+    for book in books:
+        print(book)
 
 # 1.2 TODO: Run the 'available_books' function
 
+available_books()
 
 print('-----------------------')
 # 1.3 TODO: Create a function named 'check_out' that removes a book from the books list
 # Parameters: book_title (string)
 # Return: Not needed for this function
 
+def check_out(book_title: str) -> str:
+    books.remove(book_title)
 
 # 1.4 TODO: Check out 'THE POWER OF MOMENTS' using the check_out function
 
+check_out("THE POWER OF MOMENTS")
 
 # 1.5 TODO: Run the 'available_books' function again to see if the book was checked out
 
+available_books()
 
 print('-----------------------')
 # 1.6 TODO: Create a function 'check_in' that adds a book to the end of the books list
 # Parameters: book_title (string)
 # Return: Not needed for this function
 
+def check_in(book_title: str) -> str:
+    books.append(book_title)
 
 # 1.7 TODO: Check in 'THE POWER OF MOMENTS' using the check_in function
 
+check_in("THE POWER OF MOMENTS")
 
 # 1.8 TODO: Run the 'available_books' function to see if the book was checked in
 
+available_books()
 
 print('-----------------------')
 # 1.9 TODO: Create a function 'search_by_name' that prints 'Available' if exists in books list, 'Not Available' if it doesn't.
 # Parameters: book_title (string)
 # Return: Not needed for this function
 
+def search_by_name(book_title: str) -> str:
+
+    if book_title in books:
+        print("Available")
+    else:
+        print("Not Available")
+
 
 # 1.10 TODO: Search for the book 'JUST MERCY'
 
+search_by_name("JUST MERCY")
 
 # 1.11 TODO: Search for the book '4000 WEEKS'
 
+search_by_name("4000 WEEKS")
 
 # Here's the same list of books, with additional details
 
@@ -125,21 +146,35 @@ books_with_details = [
 # 2.0 TODO: In a comment, describe the structure of the data in books_with_details.
 # What types of data are nested within others? How do you know?
 
+# The structure is a List of dictionaries. Its a list because it begins with "[" and ends with "]" then inside the list
+# we have dictionaries whish are enclosed in  '{}'. Each dictionary consists of three key:value pairs. 
 
 # 2.1 TODO: Create a function called 'count_books' that returns the number of books in the books_with_details list
 # Parameters: Not needed for this function
 # Return: number of books (integer)
 
+def count_books():
+    book_count = len(books_with_details)
+    return book_count
 
 # 2.2 TODO: Check the number of books available in the books list using the `count_books` function
-# HINT: Does `return` print anything out?
+# HINT: Does `return` print anything out? NO
 
+# print(count_books())
 
 # 2.3 TODO: Create a function 'search_by_author' that returns the titles of books by an author
 # Parameters - author (string)
 # Return - author's books (list of strings)
 # Hint - You will need a for loop, if statement, and .append() for this solution!
 
+def search_by_author(author: str) -> str:
 
+    book = []
+    for books in books_with_details:
+        if books["author"] == author:
+            book.append(books["title"])
+    return book
+    
 # 2.4 TODO: Search for book titles by the author 'Yuval Noah Harari' using the search_by_author function
 # HINT: Remember again-- return doesn't print anything out. How can we print the output of the function?
+# print(search_by_author("Yuval Noah Harari"))
