@@ -63,6 +63,3 @@ class TestLibraryFunctions(TestCase):
         self.assertEqual(harari_books, ['HOMO DEUS: A BRIEF HISTORY OF TOMORROW'])
         self.assertEqual(mead_books, [])
         
-        self.assertEqual(harari_books, ['THE PEOPLE WE KEEP'])
-        self.assertEqual(harari_books, ['HOMO DEUS: A BRIEF HISTORY OF TOMORROW'])
-        self.assertEqual(mead_books, [])
